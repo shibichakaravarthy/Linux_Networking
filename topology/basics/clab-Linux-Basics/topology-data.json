@@ -1,0 +1,148 @@
+{
+  "name": "Linux-Basics",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-b079ee10c1e8",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPbfgXShicVBOa02oHj6Yt4OJL3I3MrY+SOHw6lJ9K+z"],
+  "nodes": {
+    "host1": {
+      "index": "0",
+      "shortname": "host1",
+      "longname": "clab-Linux-Basics-host1",
+      "fqdn": "host1.Linux-Basics.io",
+      "group": "",
+      "labdir": "/home/shibi/Networking/Linux_Networking/topology/basics/clab-Linux-Basics/host1",
+      "kind": "linux",
+      "image": "nicolaka/netshoot",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.20",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::14",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-b079ee10c1e8",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/shibi/Networking/Linux_Networking/topology/basics/clab-Linux-Basics/host1",
+        "clab-node-longname": "clab-Linux-Basics-host1",
+        "clab-node-name": "host1",
+        "clab-node-type": "",
+        "clab-owner": "shibi",
+        "clab-topo-file": "/home/shibi/Networking/Linux_Networking/topology/basics/topology.yml",
+        "containerlab": "Linux-Basics"
+      },
+      "port-bindings": [
+      ]
+    },
+    "host2": {
+      "index": "1",
+      "shortname": "host2",
+      "longname": "clab-Linux-Basics-host2",
+      "fqdn": "host2.Linux-Basics.io",
+      "group": "",
+      "labdir": "/home/shibi/Networking/Linux_Networking/topology/basics/clab-Linux-Basics/host2",
+      "kind": "linux",
+      "image": "nicolaka/netshoot",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.21",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::15",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-b079ee10c1e8",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/shibi/Networking/Linux_Networking/topology/basics/clab-Linux-Basics/host2",
+        "clab-node-longname": "clab-Linux-Basics-host2",
+        "clab-node-name": "host2",
+        "clab-node-type": "",
+        "clab-owner": "shibi",
+        "clab-topo-file": "/home/shibi/Networking/Linux_Networking/topology/basics/topology.yml",
+        "containerlab": "Linux-Basics"
+      },
+      "port-bindings": [
+      ]
+    },
+    "router": {
+      "index": "2",
+      "shortname": "router",
+      "longname": "clab-Linux-Basics-router",
+      "fqdn": "router.Linux-Basics.io",
+      "group": "",
+      "labdir": "/home/shibi/Networking/Linux_Networking/topology/basics/clab-Linux-Basics/router",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.6.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.22",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::16",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-b079ee10c1e8",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/shibi/Networking/Linux_Networking/topology/basics/clab-Linux-Basics/router",
+        "clab-node-longname": "clab-Linux-Basics-router",
+        "clab-node-name": "router",
+        "clab-node-type": "",
+        "clab-owner": "shibi",
+        "clab-topo-file": "/home/shibi/Networking/Linux_Networking/topology/basics/topology.yml",
+        "containerlab": "Linux-Basics"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "router",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:a8:d8:5c",
+          "peer": "z"
+        },
+        "z": {
+          "node": "host1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:a1:cc:e4",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "router",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:d7:27:2c",
+          "peer": "z"
+        },
+        "z": {
+          "node": "host2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:0b:45:31",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}
